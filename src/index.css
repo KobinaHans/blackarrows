@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "72", "72full", Inter, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* SAP Fiori Horizon (Morning) palette */
+  --color-brand-50: #eaf3fc;
+  --color-brand-100: #d1e8ff;
+  --color-brand-200: #a6d2ff;
+  --color-brand-300: #78bbff;
+  --color-brand-400: #4da2f7;
+  --color-brand-500: #0070f2;
+  --color-brand-600: #0064d9;
+  --color-brand-700: #0057b8;
+  --color-brand-800: #00448f;
+  --color-brand-900: #003472;
+
+  --color-shell: #fff;
+  --color-canvas: #f5f6f7;
+  --color-ink-900: #1d2d3e;
+  --color-ink-700: #354a5f;
+  --color-ink-500: #556b82;
+  --color-ink-400: #758ca4;
+  --color-line: #d9d9d9;
+
+  --color-positive: #256f3a;
+  --color-positive-bg: #ebf5cb;
+  --color-critical: #e76500;
+  --color-critical-bg: #fff3b8;
+  --color-negative: #d20a0a;
+  --color-negative-bg: #ffd6e9;
+  --color-info: #0064d9;
+  --color-info-bg: #d1efff;
+  --color-neutral: #556b82;
+  --color-neutral-bg: #eaecee;
+
+  --shadow-tile: 0 0 0.125rem 0 rgb(34 54 73 / 20%), 0 0.125rem 0.5rem 0 rgb(34 54 73 / 15%);
+  --shadow-popover: 0 0.25rem 1rem 0 rgb(34 54 73 / 25%);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-canvas text-ink-900 antialiased;
+  font-size: 0.875rem;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #b8c2cc; border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
