@@ -1,0 +1,106 @@
+# .github/dependabot.yml
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  # npm/Node.js dependencies (Next.js, React, etc.)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "KobinaHans"  # Replace with your GitHub username or team
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      production-dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "@types/*"
+          - "eslint*"
+          - "prettier*"
+          - "jest*"
+          - "cypress*"
+          - "storybook*"
+      development-dependencies:
+        patterns:
+          - "@types/*"
+          - "eslint*"
+          - "prettier*"
+          - "jest*"
+          - "cypress*"
+          - "storybook*"
+    ignore:
+      - dependency-name: "react"
+        versions: ["18.x", "19.x"]  # Major version bumps may need manual review
+      - dependency-name: "react-dom"
+        versions: ["18.x", "19.x"]
+      - dependency-name: "next"
+        versions: ["15.x"]  # Hold major Next.js upgrades for manual review
+      - dependency-name: "typescript"
+        versions: [">=5.x"]  # Major TypeScript upgrades require careful review
+    commit-message:
+      prefix: "fix(deps)"
+      prefix-development: "chore(deps-dev)"
+      include: "scope"
+
+  # Python dependencies (if using any Python scripts, e.g., build tools)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "KobinaHans"
+    labels:
+      - "dependencies"
+      - "python"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "KobinaHans"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    groups:
+      github-actions-dependencies:
+        patterns:
+          - "*"
+
+  # Docker dependencies (if using Docker in your project)
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "09:00"
+      timezone: "UTC"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "KobinaHans"
+    labels:
+      - "dependencies"
+      - "docker"
